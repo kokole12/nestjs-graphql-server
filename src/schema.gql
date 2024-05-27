@@ -10,13 +10,21 @@ type User {
 
 type Query {
   users: [User!]!
+  user(id: Int!): User!
 }
 
 type Mutation {
   user(createPetInput: CreateUserInput!): User!
+  delete_user(id: Int!): [User!]!
+  update_user(id: Int!, updateUserInput: UpdateUserInput!): User!
 }
 
 input CreateUserInput {
   name: String!
+  gender: String
+}
+
+input UpdateUserInput {
+  name: String
   gender: String
 }
